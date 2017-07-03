@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <![endif]-->
+    <title>CHAT</title>
+    <!-- BOOTSTRAP CORE STYLE CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+
+</head>
+<body style="font-family:Verdana">
+
+<div class="container">
+
+    <div class="row " style="padding-top:40px;">
+        <div class="col-md-8">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    chat system
+                </div>
+                <div class="panel-body">
+                    <ul class="media-list">
+                        <li class="media">
+                            <div class="media-body" id="chat">
+                                <?php foreach($messages as $m){
+                                    $name    =  $m['name'];
+                                    $message = $m['message'];
+                                    $date = $m['date'];
+                                    ?>
+                                <div class="media">
+                                    <div class="media-body" >
+                                        <?php echo $message;?>
+                                        <br />
+                                        <small class="text-muted"><?php echo $name;?>  | <?php echo $date;?> </small>
+                                        <hr />
+                                    </div>
+                                </div>
+                                <?php }?>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="panel-footer">
+                    <form method="post" action="index.php">
+                        <input type="text" class="form-control" placeholder="name" name="name">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Enter Message" name="message" >
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-info"><i class="fa fa-paper-plane"></i>SEND</button>
+                                    </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
